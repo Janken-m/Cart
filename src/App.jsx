@@ -20,7 +20,7 @@ class App extends Component {
     this.setState({ products });
   };
 
-  handleDicrement = (product) => {
+  handleDecrement = (product) => {
     const products = [...this.state.products];
     const index = products.indexOf(product);
     products[index] = { ...product };
@@ -49,7 +49,7 @@ class App extends Component {
           <Products
             products={this.state.products}
             onIncrement={this.handleIncrement}
-            onDicrement={this.handleDicrement}
+            onDecrement={this.handleDecrement}
             onDelete={this.handleDelete}
             onReset={this.handleReset}
           />

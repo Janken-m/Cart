@@ -14,7 +14,7 @@ class Products extends Component {
             product={product}
             onDelete={this.props.onDelete}
             onIncrement={this.props.onIncrement}
-            onDicrement={this.props.onDicrement}
+            onDecrement={this.props.onDecrement}
           />
         ))}
       </>

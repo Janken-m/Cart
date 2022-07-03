@@ -11,7 +11,7 @@ class Product extends Component {
         >
           +
         </button>
-        <button onClick={()=> this.props.onDicrement(this.props.product)}
+        <button onClick={()=> this.props.onDecrement(this.props.product)}
         className="btn btn-secondary"
         >
             -
