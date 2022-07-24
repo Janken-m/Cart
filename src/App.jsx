@@ -42,12 +42,13 @@ class App extends Component {
   };
 
   render() {
+    const {products} = this.state;
     return (
       <>
-        <NavBar totalProducts={this.state.products.length} />
+        <NavBar totalProducts={products.filter((p) => p.quantity > 0).length} />
         <div className="container">
           <Products
-            products={this.state.products}
+            product={products}
             onIncrement={this.handleIncrement}
             onDecrement={this.handleDecrement}
             onDelete={this.handleDelete}

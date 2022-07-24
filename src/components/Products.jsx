@@ -3,12 +3,14 @@ import Product from "./Product";
 
 class Products extends Component {
   render() {
+    const {onReset , product} = this.props;
+
     return (
       <>
-        <button onClick={this.props.onReset} className="btn btn-primary my-3 mx-5">
+        <button onClick={onReset} className="btn btn-primary my-3 mx-5">
           Reset
         </button>
-        {this.props.products.map((product) => (
+        {product.map((product) => (
           <Product
             key={product.id}
             product={product}

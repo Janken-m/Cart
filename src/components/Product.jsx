@@ -2,27 +2,36 @@ import React, { Component } from "react";
 
 class Product extends Component {
   render() {
-    return (
-      <div className="m-2">
-        <span className={this.getBadgeClasses()}>{this.formatQuantity()}</span>
-        <button
-          onClick={() => this.props.onIncrement(this.props.product)}
-          className="btn btn-secondary mx-3 "
-        >
-          +
-        </button>
-        <button onClick={()=> this.props.onDecrement(this.props.product)}
-        className="btn btn-secondary"
-        >
-            -
+    const { onIncrement, onDecrement, onDelete, product } = this.props;
 
-        </button>
-        <button
-          onClick={() => this.props.onDelete(this.props.product.id)}
-          className="btn btn-danger m-2"
-        >
-          X
-        </button>
+    return (
+      <div className="m-2 row">
+        <div className="col-1">
+          <span className={this.getBadgeClasses()}>
+            {this.formatQuantity()}
+          </span>
+        </div>
+        <div className="col">
+          <button
+            onClick={() => onIncrement(product)}
+            className="btn btn-secondary mx-3 "
+          >
+            +
+          </button>
+          <button
+            onClick={() => onDecrement(product)}
+            className="btn btn-secondary"
+            disabled={product.quantity === 0}
+          >
+            -
+          </button>
+          <button
+            onClick={() => onDelete(product.id)}
+            className="btn btn-danger m-2"
+          >
+            X
+          </button>
+        </div>
       </div>
     );
   }
@@ -30,7 +39,7 @@ class Product extends Component {
   getBadgeClasses() {
     let classes = "badge me-2 bg-";
     classes +=
-      this.props.product.quantity === 0 ? "warning text-dark" : "primary";
+    this.props.product.quantity === 0 ? "warning text-dark" : "primary";
     return classes;
   }
 
